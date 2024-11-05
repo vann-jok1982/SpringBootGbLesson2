@@ -3,22 +3,25 @@ package com.example.demoGbHomework.controllers;
 import com.example.demoGbHomework.model.Person2;
 import com.example.demoGbHomework.service.Person2Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class Person2Controller {
     @Autowired
     Person2Service person2Service;
 
     @GetMapping("/person2")
+    @ResponseBody
     public List<Person2> person2(){
         return person2Service.findAll();
     }
 
     @PostMapping("/person22")
+    @ResponseBody
     public void save(@RequestBody Person2 person2){
         person2Service.save(person2);
     }
