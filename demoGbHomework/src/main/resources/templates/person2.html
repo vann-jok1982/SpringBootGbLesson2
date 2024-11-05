@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Person2</title>
+</head>
+<body>
+<h1>Список Имён</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Возраст</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.getId()}">ID</td>
+        <td th:text="${item.getName()}">Имя</td>
+        <td th:text="${item.getAge()}">Возраст</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
