@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список задач</title>
+</head>
+<body>
+<h1>Список задач</h1>
+<div th:each="zadacha : ${spisok}">
+    <a th:href="@{/spisokzadach/{id}(id=${zadacha.getId()})}" th:text="${zadacha.getData()+ ' - ' +zadacha.getStatus()}">user</a>
+</div>
+<a th:href="@{/spisokzadach/save}" th:text="${'Добавить новую запись'}">Добавить новую запись</a>
+<p></p>
+<a th:href="@{/spisokzadach}" th:text="${'Весь список задач'}"></a>
+<p></p>
+<a th:href="@{/spisokzadach/postatusu/vprocesse}" th:text="${'Отсортировать по статусу <В процессе>'}"></a>
+<p></p>
+<a th:href="@{/spisokzadach/postatusu/zavershena}" th:text="${'Отсортировать по статусу <завершена>'}"></a>
+<p></p>
+<a th:href="@{/spisokzadach/postatusu/nenachata}" th:text="${'Отсортировать по статусу <не начата>'}"></a>
+</body>
+</html>

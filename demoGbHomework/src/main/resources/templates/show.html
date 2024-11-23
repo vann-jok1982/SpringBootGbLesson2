@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Задача</title>
+</head>
+<body>
+<h1>Задачa:</h1>
+<p th:text="${zadacha.getData()}">VALUE</p>
+<p th:text="${zadacha.getOpisanie()}">VALUE</p>
+<p th:text="${zadacha.getStatus()}">VALUE</p>
+<a th:href="@{/spisokzadach/vprocesse/{id}(id=${zadacha.getId()})}" th:text="${'Заменить статус на <в процессе>'}">заменить статус</a>
+<p></p>
+<a th:href="@{/spisokzadach/zavershena/{id}(id=${zadacha.getId()})}" th:text="${'Заменить статус на <завершена>'}">заменить статус</a>
+<p></p>
+<a th:href="@{/spisokzadach/delete/{id}(id=${zadacha.getId()})}" th:text="${'Удалить запись'}">Удалить запись</a>
+<p></p>
+<a th:href="@{/spisokzadach}" th:text="${'Список задач'}">Список задач</a>
+
+</body>
+</html>

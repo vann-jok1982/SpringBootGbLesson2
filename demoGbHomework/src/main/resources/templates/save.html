@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма добавления данных</title>
+</head>
+<body>
+<h1>Добавьте ваши данные</h1>
+<form th:method="POST" th:action="@{/spisokzadach/save}" th:object="${formData}" >
+<!--    <label for="data">Дата:</label>-->
+<!--    <input type="text" id="data" th:field="*{data}" required /><br/>-->
+
+<!--    <label for="status">Статус:</label>-->
+<!--    <input type="text" id="status" th:field="*{status}" required /><br/>-->
+
+    <label for="message">Сообщение:</label>
+    <textarea id="message" th:field="*{opisanie}" required></textarea><br/>
+
+    <button type="submit">Отправить</button>
+</form>
+</body>
+</html>
