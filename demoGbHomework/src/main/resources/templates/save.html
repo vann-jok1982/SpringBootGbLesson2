@@ -1,22 +1,93 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Форма добавления данных</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Добавьте ваши данные</h1>-->
+<!--<form th:method="POST" th:action="@{/spisokzadach/save}" th:object="${formData}" >-->
+<!--&lt;!&ndash;    <label for="data">Дата:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <input type="text" id="data" th:field="*{data}" required /><br/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <label for="status">Статус:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <input type="text" id="status" th:field="*{status}" required /><br/>&ndash;&gt;-->
+
+<!--    <label for="message">Сообщение:</label>-->
+<!--    <textarea id="message" th:field="*{opisanie}" required></textarea><br/>-->
+
+<!--    <button type="submit">Отправить</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Форма добавления данных</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            resize: none;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 <h1>Добавьте ваши данные</h1>
-<form th:method="POST" th:action="@{/spisokzadach/save}" th:object="${formData}" >
-<!--    <label for="data">Дата:</label>-->
-<!--    <input type="text" id="data" th:field="*{data}" required /><br/>-->
-
-<!--    <label for="status">Статус:</label>-->
-<!--    <input type="text" id="status" th:field="*{status}" required /><br/>-->
-
-    <label for="message">Сообщение:</label>
-    <textarea id="message" th:field="*{opisanie}" required></textarea><br/>
-
-    <button type="submit">Отправить</button>
-</form>
+<img src="https://aif-s3.aif.ru/images/006/324/cba2e9f9b4e5191fc0dbf394c5179f74.jpg" alt="Картинка" class="image">
+<div class="container">
+    <form th:method="POST" th:action="@{/spisokzadach/save}" th:object="${formData}">
+        <label for="message">Сообщение:</label>
+        <textarea id="message" th:field="*{opisanie}" required></textarea>
+        <button type="submit">Отправить</button>
+    </form>
+</div>
 </body>
 </html>

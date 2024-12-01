@@ -1,21 +1,94 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en"  xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Задача</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Задачa:</h1>-->
+<!--<p th:text="${zadacha.getData()}">VALUE</p>-->
+<!--<p th:text="${zadacha.getOpisanie()}">VALUE</p>-->
+<!--<p th:text="${zadacha.getStatus()}">VALUE</p>-->
+<!--<a th:href="@{/spisokzadach/vprocesse/{id}(id=${zadacha.getId()})}" th:text="${'Заменить статус на <в процессе>'}">заменить статус</a>-->
+<!--<p></p>-->
+<!--<a th:href="@{/spisokzadach/zavershena/{id}(id=${zadacha.getId()})}" th:text="${'Заменить статус на <завершена>'}">заменить статус</a>-->
+<!--<p></p>-->
+<!--<a th:href="@{/spisokzadach/delete/{id}(id=${zadacha.getId()})}" th:text="${'Удалить запись'}">Удалить запись</a>-->
+<!--<p></p>-->
+<!--<a th:href="@{/spisokzadach}" th:text="${'Список задач'}">Список задач</a>-->
+
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Задача</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .task-detail {
+            margin-bottom: 20px;
+        }
+        .task-status {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn {
+            text-decoration: none;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .hand-image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-<h1>Задачa:</h1>
-<p th:text="${zadacha.getData()}">VALUE</p>
-<p th:text="${zadacha.getOpisanie()}">VALUE</p>
-<p th:text="${zadacha.getStatus()}">VALUE</p>
-<a th:href="@{/spisokzadach/vprocesse/{id}(id=${zadacha.getId()})}" th:text="${'Заменить статус на <в процессе>'}">заменить статус</a>
-<p></p>
-<a th:href="@{/spisokzadach/zavershena/{id}(id=${zadacha.getId()})}" th:text="${'Заменить статус на <завершена>'}">заменить статус</a>
-<p></p>
-<a th:href="@{/spisokzadach/delete/{id}(id=${zadacha.getId()})}" th:text="${'Удалить запись'}">Удалить запись</a>
-<p></p>
-<a th:href="@{/spisokzadach}" th:text="${'Список задач'}">Список задач</a>
-
+<div class="container">
+    <h1>Задача:</h1>
+    <img src="https://i.pinimg.com/736x/17/99/1f/17991f52cc8ff05f137520c0d022fc63.jpg" alt="Ручка" class="hand-image">
+    <div class="task-detail">
+        <p><strong>Данные:</strong> <span th:text="${zadacha.getData()}">VALUE</span></p>
+        <p><strong>Описание:</strong> <span th:text="${zadacha.getOpisanie()}">VALUE</span></p>
+        <p><strong>Статус:</strong> <span class="task-status" th:text="${zadacha.getStatus()}">VALUE</span></p>
+    </div>
+    <div class="buttons">
+        <a class="btn" th:href="@{/spisokzadach/vprocesse/{id}(id=${zadacha.getId()})}" th:text="${'Заменить статус на <в процессе>'}">заменить статус</a>
+        <a class="btn" th:href="@{/spisokzadach/zavershena/{id}(id=${zadacha.getId()})}" th:text="${'Заменить статус на <завершена>'}">заменить статус</a>
+        <a class="btn" th:href="@{/spisokzadach/delete/{id}(id=${zadacha.getId()})}" th:text="${'Удалить запись'}">Удалить запись</a>
+        <a class="btn" th:href="@{/spisokzadach}" th:text="${'Список задач'}">Список задач</a>
+    </div>
+</div>
 </body>
 </html>

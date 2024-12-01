@@ -1,5 +1,6 @@
 package com.example.demoGbHomework.controllers;
 
+import com.example.demoGbHomework.aspects.TrackUserAction;
 import com.example.demoGbHomework.model.SpisokZadach;
 import com.example.demoGbHomework.service.SpisokZadachServise;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,13 @@ public class SpisokZadachController {
     @Autowired
     SpisokZadachServise spisokZadachServise;
     @GetMapping()  // все задачи
+    @TrackUserAction
     public String printSpisok(Model model){
         model.addAttribute("spisok",spisokZadachServise.findAll());
         return "spisok_zadach";
     }
     @GetMapping("/save")   // Добавление задачи
+    @TrackUserAction
     public String showForm(Model model) {
            model.addAttribute("formData", new SpisokZadach());
         return "save"; // 
@@ -34,11 +37,11 @@ public class SpisokZadachController {
         return "redirect:/spisokzadach"; // имя шаблона для отображения результата
     }
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") int id, Model model){
+    public String show(@PathVariable("id") int id, Model model){// отображение задачи по id
         model.addAttribute("zadacha", spisokZadachServise.findOne(id));
         return "show";
     }
-    @GetMapping("/delete/{id}")   // отображение задачи по id
+    @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") int id){
         spisokZadachServise.delete(id);
         return "redirect:/spisokzadach";
